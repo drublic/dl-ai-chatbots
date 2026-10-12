@@ -1,0 +1,382 @@
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Theory divider
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner section-break on-photo">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <p class="section-break-kicker">Short theory · then we build</p>
+    <h1 class="section-break-title">
+      Compose the <span class="u">product</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Module stack
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Theory · Teaching point</span>
+    <h2>You already have the parts</h2>
+    <p class="speaker-lead stage-path-lead">
+      Four sessions. One stack. Tonight we wire them into a product.
+    </p>
+
+    <div class="stage-path" aria-label="Module progression">
+      <article class="stage-card">
+        <div class="stage-card-num">S1</div>
+        <h3 class="stage-card-title">Automate</h3>
+        <p class="stage-card-body">Agents and scripts that take action.</p>
+      </article>
+      <span class="stage-path-arrow" aria-hidden="true">→</span>
+      <article class="stage-card">
+        <div class="stage-card-num">S2</div>
+        <h3 class="stage-card-title">Context</h3>
+        <p class="stage-card-body">Prompts, memory, and system framing.</p>
+      </article>
+      <span class="stage-path-arrow" aria-hidden="true">→</span>
+      <article class="stage-card">
+        <div class="stage-card-num">S3</div>
+        <h3 class="stage-card-title">MCP · RAG</h3>
+        <p class="stage-card-body">Tools and grounded retrieval.</p>
+      </article>
+      <span class="stage-path-arrow" aria-hidden="true">→</span>
+      <article class="stage-card stage-card--now">
+        <div class="stage-card-kicker">Tonight</div>
+        <div class="stage-card-num">S4</div>
+        <h3 class="stage-card-title">Product UI</h3>
+        <p class="stage-card-body">
+          Chatbot in the browser: classify, query, stream.
+        </p>
+      </article>
+    </div>
+
+    <div class="callout stage-path-callout">
+      Tonight’s win is not “more RAG.” It’s
+      <strong>stacking what you built</strong> until a colleague can use it.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - What we reuse
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Theory · Inventory</span>
+    <h2>Components we bring in</h2>
+    <div class="compare-grid" style="grid-template-columns: repeat(3, 1fr)">
+      <div class="compare-card">
+        <div class="pattern-badge">New tonight</div>
+        <h3>Chat product shell</h3>
+        <p>Next.js · <code>useChat</code> · streaming states</p>
+      </div>
+      <div class="compare-card">
+        <div class="pattern-badge">Shared DB</div>
+        <h3>Season Postgres</h3>
+        <p>Races · start lists · seed from raceplanner</p>
+      </div>
+      <div class="compare-card">
+        <div class="pattern-badge">AI SDK</div>
+        <h3>Classify + stream</h3>
+        <p><code>experimental_decide</code> · <code>streamText</code></p>
+      </div>
+    </div>
+
+<nav class="learn-more" aria-label="Docs">
+  <span class="learn-more-label">Docs</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs" rel="noopener" target="_blank">AI SDK</a></li>
+    <li><a class="link-blue" href="https://ai-sdk.dev/docs/ai-sdk-core/decisions" rel="noopener" target="_blank">Decisions</a></li>
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots" rel="noopener" target="_blank">companion repo</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Streaming
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Theory · Streaming</span>
+    <h2>Why chat UIs stream</h2>
+    <div class="goals-checklist" style="margin-top: 12px; max-width: 960px">
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          ><strong>Perceived speed:</strong> first tokens beat a long spinner</span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          ><strong>Interruptible:</strong> user can stop mid-reply</span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          ><strong>Progressive UI:</strong> text, then tool status, then
+          sources</span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >Server streams · client hooks (<code>useChat</code>) update the
+          list</span
+        >
+      </div>
+    </div>
+
+<nav class="learn-more" aria-label="Docs">
+  <span class="learn-more-label">Docs</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/ai-sdk-ui/chatbot" rel="noopener" target="_blank">AI SDK UI · Chatbot</a></li>
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/ai-sdk-core/streaming" rel="noopener" target="_blank">Streaming</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Error recognition
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Theory · Error recognition</span>
+    <h2>States you must make visible</h2>
+    <table class="term-table" style="margin-top: 12px; max-width: 980px">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>What the user should see</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ready</code></td>
+          <td>Input enabled · can send</td>
+        </tr>
+        <tr>
+          <td><code>submitted</code> / <code>streaming</code></td>
+          <td>In-progress · disable send · optional Stop</td>
+        </tr>
+        <tr>
+          <td><code>error</code></td>
+          <td>Generic “something went wrong” · retry possible</td>
+        </tr>
+        <tr>
+          <td>Tool running</td>
+          <td>“Classifying… querying DB…”: not a frozen blank screen</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="callout" style="max-width: 920px; margin-top: 16px">
+      Don’t leak raw API errors or keys. Recognize the class of failure; keep
+      the UI honest.
+    </div>
+
+<nav class="learn-more" aria-label="Links">
+  <ul class="learn-more-list">
+    <li><span class="learn-more-note"><code>useChat</code> status values:</span></li>
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat" rel="noopener" target="_blank">useChat reference</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Chat UI anatomy (numbered)
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top slide-compact chat-anatomy-slide">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <div class="chat-anatomy-head">
+      <div>
+        <span class="eyebrow">Before we build · Live demo</span>
+        <h2>Anatomy of the chat interface</h2>
+      </div>
+      <p class="chat-anatomy-live">
+        Live: <code>localhost:3000/anatomy</code> · build <code>/chat</code> · peek <code>/reference</code>
+      </p>
+    </div>
+
+    <div class="chat-anatomy">
+      <div class="chat-mock" aria-hidden="true">
+        <div class="chat-mock-bar">
+          <span class="chat-pin chat-pin-inline">1</span>
+          <div class="chat-mock-bar-copy">
+            <div class="chat-mock-bar-title">Race Season Assistant</div>
+            <div class="chat-mock-bar-sub">Product shell</div>
+          </div>
+        </div>
+
+        <div class="chat-mock-body">
+          <div class="chat-bubble bot">
+            <span class="chat-pin chat-pin-inline">2</span>
+            <div class="chat-bubble-copy">
+              <div class="chat-bubble-role">Assistant</div>
+              Hi — ask about the club calendar or start lists.
+            </div>
+          </div>
+
+          <div class="chat-bubble user">
+            <span class="chat-pin chat-pin-inline">3</span>
+            <div class="chat-bubble-copy">
+              <div class="chat-bubble-role">You</div>
+              How many riders on Rund um Merken?
+            </div>
+          </div>
+
+          <div class="chat-tool-line">
+            <span class="chat-pin chat-pin-inline">4</span>
+            <span>Classifying… querying DB…</span>
+          </div>
+
+          <div class="chat-bubble bot">
+            <span class="chat-pin chat-pin-inline">5</span>
+            <div class="chat-bubble-copy">
+              <div class="chat-bubble-role">Assistant</div>
+              Amateure · Merken has <strong>6 riders</strong>.
+              <div class="chat-cite-row">
+                <span class="chat-cite-chip">races · Amateure · Merken</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-stream-row">
+            <span class="chat-pin chat-pin-inline">6</span>
+            <span class="chat-stream-dots" aria-hidden="true"
+              ><span></span><span></span><span></span
+            ></span>
+            <span>Streaming…</span>
+          </div>
+
+          <div class="chat-error-row">
+            <span class="chat-pin chat-pin-inline">7</span>
+            <span>Error — check <code>.env.local</code></span>
+          </div>
+        </div>
+
+        <div class="chat-mock-composer">
+          <span class="chat-pin chat-pin-inline">8</span>
+          <div class="chat-mock-input">Ask about the season…</div>
+          <button class="chat-mock-btn" type="button">Send</button>
+          <button class="chat-mock-btn stop" type="button">
+            <span class="chat-pin chat-pin-inline">9</span>
+            Stop
+          </button>
+        </div>
+      </div>
+
+      <ol class="chat-legend">
+        <li><span class="chat-legend-num">1</span><span>Interface shell</span></li>
+        <li><span class="chat-legend-num">2</span><span>Assistant message</span></li>
+        <li><span class="chat-legend-num">3</span><span>User message</span></li>
+        <li><span class="chat-legend-num">4</span><span>Classify / query status</span></li>
+        <li><span class="chat-legend-num">5</span><span>Grounded answer + source</span></li>
+        <li><span class="chat-legend-num">6</span><span>Streaming / loading</span></li>
+        <li><span class="chat-legend-num">7</span><span>Error state</span></li>
+        <li><span class="chat-legend-num">8</span><span>Composer</span></li>
+        <li><span class="chat-legend-num">9</span><span>Stop</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Build map
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Theory → Build</span>
+    <h2>Tonight’s five steps</h2>
+    <div class="step-list step-list-five">
+      <div class="step-item">
+        <span class="step-num">01</span>
+        <div>
+          <div class="step-text">Start development: scaffold the app</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">02</span>
+        <div>
+          <div class="step-text">Initial interface: chat shell</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">03</span>
+        <div>
+          <div class="step-text">Wire everything: stream from the model</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">04</span>
+        <div>
+          <div class="step-text">Classify + query: OpenAI classify + Postgres</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">05</span>
+        <div>
+          <div class="step-text">Query: golden questions · show your bot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

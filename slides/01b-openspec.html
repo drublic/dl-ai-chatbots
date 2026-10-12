@@ -1,0 +1,270 @@
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - OpenSpec divider
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner section-break on-photo">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <p class="section-break-kicker">
+      Intent in the repo · not only in chat
+    </p>
+    <h1 class="section-break-title">
+      <span class="u">OpenSpec</span> is the map
+    </h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Why OpenSpec tonight
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">OpenSpec · Why tonight</span>
+    <h2>We’re composing many pieces. Spec first.</h2>
+    <p class="speaker-lead" style="max-width: 920px">
+      Same idea as the MVP session: agents guess. A change in git holds what
+      “done” means for the chatbot; so you and your agent (Cursor, VS Code, or
+      Claude) share one map.
+    </p>
+    <div class="compare-grid" style="margin-top: 8px">
+      <div class="compare-card">
+        <div class="pattern-badge">Without a spec</div>
+        <h3>Prompt spaghetti</h3>
+        <p>
+          “Add classify… wait SQL… fix streaming…”; branches compound, hard to
+          know what’s left.
+        </p>
+      </div>
+      <div class="compare-card">
+        <div class="pattern-badge">With OpenSpec</div>
+        <h3>One change</h3>
+        <p>
+          <code>build-race-season-assistant</code>: proposal, requirements,
+          design, tasks next to the app.
+        </p>
+      </div>
+    </div>
+
+<nav class="learn-more" aria-label="Learn more">
+  <span class="learn-more-label">Learn more</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://openspec.dev/docs/getting-started" rel="noopener" target="_blank">OpenSpec getting started</a></li>
+    <li><span class="learn-more-note">change lives in</span></li>
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/tree/main/openspec/changes/build-race-season-assistant" rel="noopener" target="_blank">dl-school-chatbots/openspec/…</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Change shape
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">OpenSpec · In the companion repo</span>
+    <h2><code>build-race-season-assistant</code></h2>
+    <div class="step-list" style="max-width: 980px; margin-top: 12px">
+      <div class="step-item">
+        <span class="step-num">01</span>
+        <div>
+          <div class="step-text"><code>proposal.md</code>: why we compose</div>
+          <div class="step-sub">Product: classify + season Postgres</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">02</span>
+        <div>
+          <div class="step-text">
+            <code>specs/race-season-assistant/spec.md</code>: what “done” is
+          </div>
+          <div class="step-sub">
+            Streaming · OpenAI classify · SQL · refusal · golden scenarios
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">03</span>
+        <div>
+          <div class="step-text"><code>design.md</code>: how we wire</div>
+          <div class="step-sub">UI → stream → classify → query</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">04</span>
+        <div>
+          <div class="step-text"><code>tasks.md</code>: tonight’s checklist</div>
+          <div class="step-sub">Same five steps as the slides</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Map anatomy → OpenSpec
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">OpenSpec · Traceability</span>
+    <h2>UI numbers ↔ requirements</h2>
+    <table
+      class="term-table num-col-table"
+      style="margin-top: 10px; max-width: 1040px"
+    >
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>On screen</th>
+          <th>In the spec / tasks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1–3, 8</td>
+          <td>Shell · bot · user · composer</td>
+          <td>Streaming chat + stepwise product</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Classify / query status</td>
+          <td>Season Postgres from the chat API</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Answer + source</td>
+          <td>Facts from Postgres query results</td>
+        </tr>
+        <tr>
+          <td>6–7, 9</td>
+          <td>Streaming · error · stop</td>
+          <td>Recognizable states</td>
+        </tr>
+        <tr>
+          <td>-</td>
+          <td>Golden questions / refusal</td>
+          <td>Query verification scenarios</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="callout" style="max-width: 920px; margin-top: 14px">
+      If the UI doesn’t match the spec, change the code <em>or</em> update the
+      spec; don’t leave intent only in the chat thread.
+    </div>
+
+<nav class="learn-more" aria-label="Spec file">
+  <span class="learn-more-label">Spec file</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/openspec/changes/build-race-season-assistant/specs/race-season-assistant/spec.md" rel="noopener" target="_blank">race-season-assistant/spec.md</a></li>
+    <li><span class="learn-more-note">OpenSpec:</span></li>
+    <li><a class="link-blue" href="https://openspec.dev/docs/getting-started" rel="noopener" target="_blank">Getting started</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - How we use it tonight
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">OpenSpec · Live workflow</span>
+    <h2>How you’ll use it in the room</h2>
+    <div class="goals-checklist" style="margin-top: 10px; max-width: 980px">
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >Clone
+          <a
+            class="link-blue"
+            href="https://github.com/drublic/dl-school-chatbots"
+            rel="noopener"
+            target="_blank"
+            >dl-school-chatbots</a
+          >
+         ; OpenSpec lives in
+          <code>openspec/changes/build-race-season-assistant/</code></span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >Skim <code>tasks.md</code>: that’s the build order for the
+          evening</span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >In Cursor, VS Code, or Claude: <code>/opsx-apply</code> (Cursor) or
+          ask the agent to apply the change for remaining unchecked tasks; or
+          wire them by hand</span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >When a golden question fails: check intent + SQL / prompt, then
+          tick the task</span
+        >
+      </div>
+    </div>
+    <div class="code-terminal" style="max-width: 980px; margin-top: 14px">
+      <div class="code-terminal-bar">
+        <span class="code-terminal-dot" style="background: #ff5f56"></span>
+        <span class="code-terminal-dot" style="background: #ffbd2e"></span>
+        <span class="code-terminal-dot" style="background: #27c93f"></span>
+        <span class="code-terminal-title">terminal</span>
+      </div>
+      <div class="code-terminal-body">
+        <pre><code><span class="c-green">openspec show build-race-season-assistant</span>
+<span class="c-green">openspec status --change build-race-season-assistant</span></code></pre>
+      </div>
+    </div>
+
+<nav class="learn-more" aria-label="Install CLI">
+  <span class="learn-more-label">Install CLI</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://openspec.dev/docs/installation" rel="noopener" target="_blank">Installation</a></li>
+    <li><a class="link-blue" href="https://openspec.dev/docs/cli" rel="noopener" target="_blank">CLI</a></li>
+    <li><span class="learn-more-note">change folder <code>openspec/changes/build-race-season-assistant/</code></span></li>
+  </ul>
+</nav>
+</div>
+</section>

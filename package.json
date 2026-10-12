@@ -1,0 +1,11 @@
+{
+  "name": "dl-ai-features-chatbots",
+  "private": true,
+  "scripts": {
+    "start": "serve . -p 1340 -c serve.json",
+    "dev": "serve . -p 1340 -c serve.json"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

@@ -1,0 +1,353 @@
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 4 divider
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner section-break on-photo">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <p class="section-break-kicker">Step 4 of 5</p>
+    <h1 class="section-break-title">
+      Classify + <span class="u">query</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 4 why classify
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 4 · Classify + SQL</span>
+    <h2>Classify the question, then query Postgres</h2>
+    <p class="speaker-lead stage-path-lead">
+      Shared season DB. <strong>Decisions API</strong> picks the SQL branch;
+      heuristics fill race/category hints.
+    </p>
+
+    <div class="stage-path" aria-label="Classify then query">
+      <article class="stage-card">
+        <div class="stage-card-num">1</div>
+        <h3 class="stage-card-title">Chat UI</h3>
+        <p class="stage-card-body">
+          <code>useChat</code> sends the question from <code>/chat</code>.
+        </p>
+      </article>
+      <span class="stage-path-arrow" aria-hidden="true">→</span>
+      <article class="stage-card stage-card--now">
+        <div class="stage-card-kicker">Tonight</div>
+        <div class="stage-card-num">2</div>
+        <h3 class="stage-card-title">Decisions</h3>
+        <p class="stage-card-body">
+          <code>choice</code> → list / start list / count / refuse.
+        </p>
+      </article>
+      <span class="stage-path-arrow" aria-hidden="true">→</span>
+      <article class="stage-card">
+        <div class="stage-card-num">3</div>
+        <h3 class="stage-card-title">SQL</h3>
+        <p class="stage-card-body">
+          <code>lib/queries</code> reads the seeded Postgres season DB.
+        </p>
+      </article>
+      <span class="stage-path-arrow" aria-hidden="true">→</span>
+      <article class="stage-card">
+        <div class="stage-card-num">4</div>
+        <h3 class="stage-card-title">streamText</h3>
+        <p class="stage-card-body">
+          Grounded reply from query JSON only — no invented riders.
+        </p>
+      </article>
+    </div>
+
+    <nav class="learn-more stage-path-callout" aria-label="Docs">
+      <span class="learn-more-label">Docs</span>
+      <ul class="learn-more-list">
+        <li>
+          <a
+            class="link-blue"
+            href="https://ai-sdk.dev/docs/ai-sdk-core/decisions"
+            rel="noopener"
+            target="_blank"
+            >AI SDK · Decisions</a
+          >
+        </li>
+        <li>
+          <span class="learn-more-note"
+            >files <code>lib/classify.ts</code>, <code>lib/queries.ts</code>,
+            <code>data/seed/season.json</code></span
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 4 code
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top slide-compact">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 4 · Decisions API</span>
+    <h2><code>experimental_decide</code> + <code>choice</code></h2>
+    <div class="code-terminal compact" style="max-width: 1080px">
+      <div class="code-terminal-bar">
+        <span class="code-terminal-dot" style="background: #ff5f56"></span>
+        <span class="code-terminal-dot" style="background: #ffbd2e"></span>
+        <span class="code-terminal-dot" style="background: #27c93f"></span>
+        <span class="code-terminal-title">lib/classify.ts (sketch)</span>
+      </div>
+      <div class="code-terminal-body">
+        <pre><code><span class="c-kw">import</span> { experimental_decide } <span class="c-kw">from</span> <span class="c-str">'ai'</span>;
+<span class="c-kw">import</span> { openai } <span class="c-kw">from</span> <span class="c-str">'@ai-sdk/openai'</span>;
+
+<span class="c-kw">const</span> { answers } = <span class="c-kw">await</span> experimental_decide({
+  model: openai.decisionModel(<span class="c-str">'gpt-6-luna'</span>),
+  state: { question: userText },
+  questions: {
+    intent: {
+      type: <span class="c-str">'choice'</span>,
+      instructions: <span class="c-str">'Pick the SQL branch for this season question.'</span>,
+      criteria: {
+        list_races: <span class="c-str">'Calendar overview'</span>,
+        start_list: <span class="c-str">'Who rides a named race'</span>,
+        count_riders: <span class="c-str">'How many riders'</span>,
+        refuse: <span class="c-str">'Off-domain / impossible'</span>,
+      },
+    },
+  },
+});
+<span class="c-comment">// answers.intent.choice → lib/queries.ts · raceHint via heuristics</span></code></pre>
+      </div>
+    </div>
+    <p class="code-pkgs">
+      <span class="code-pkgs-label">install</span>
+      <code>npm i ai @ai-sdk/openai postgres</code>
+    </p>
+    <p style="margin-top: 10px; font-size: 15px; color: var(--color-gray-text)">
+      Decisions = pick a branch. Use heuristics (or Responses later) for free-text
+      hints. Keys: <code>OPENAI_API_KEY</code> + <code>DATABASE_URL</code>.
+    </p>
+
+<nav class="learn-more" aria-label="Docs">
+  <span class="learn-more-label">Docs</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://ai-sdk.dev/docs/ai-sdk-core/decisions" rel="noopener" target="_blank">AI SDK · Decisions</a></li>
+    <li><a class="link-blue" href="https://platform.openai.com/docs/guides/decisions" rel="noopener" target="_blank">OpenAI Decisions</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 4 checkpoint
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 4 · Checkpoint</span>
+    <h2>Season answers from Postgres</h2>
+    <div class="goals-checklist" style="margin-top: 8px; max-width: 960px">
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >Ask: <em>“How many riders on Rund um Merken for Amateure?”</em> →
+          <strong>6</strong></span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Intent logged / status shows classify → query</span>
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >Facts come from SQL rows, not model memory</span
+        >
+      </div>
+    </div>
+
+<nav class="learn-more" aria-label="Seed">
+  <span class="learn-more-label">Seed</span>
+  <ul class="learn-more-list">
+    <li><span class="learn-more-note"><code>npm run db:seed</code></span></li>
+    <li><span class="learn-more-note">guide</span></li>
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/WORKSHOP.md" rel="noopener" target="_blank">WORKSHOP.md · Step 4</a></li>
+    <li><span class="learn-more-note">MCP wrap is homework only</span></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         BREAK 2
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner mvp-break">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <span class="eyebrow mvp-break-eyebrow">Break 2 of 2 · ~10 minutes</span>
+    <h1 class="mvp-break-title">Next: query what you built.</h1>
+    <p class="mvp-break-lead">
+      Golden questions · refusal · show your bot.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 5 divider
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner section-break on-photo">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <p class="section-break-kicker">Step 5 of 5</p>
+    <h1 class="section-break-title">
+      <span class="u">Query</span> your chatbot
+    </h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Golden questions
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top slide-compact">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 5 · Screenshot this</span>
+    <h2>Run these in <code>/chat</code> or <code>/reference</code></h2>
+    <table class="term-table golden-q-table" style="margin-top: 4px">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ask</th>
+          <th>Expect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Which Amateur races are on the calendar?</td>
+          <td><strong>List</strong> (Merken, Rheinbach…)</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Who rides Rund um Merken for Amateure?</td>
+          <td><strong>6 names</strong> from start list</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>How many riders on Rund um Merken (Amateure)?</td>
+          <td><strong>6</strong></td>
+        </tr>
+        <tr>
+          <td>✖</td>
+          <td>What’s our stock ticker?</td>
+          <td><strong>Refuse</strong>: not in season DB</td>
+        </tr>
+      </tbody>
+    </table>
+
+<nav class="learn-more" aria-label="Full list in the repo">
+  <span class="learn-more-label">Full list in the repo</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/data/golden-questions.md" rel="noopener" target="_blank">data/golden-questions.md</a></li>
+    <li><span class="learn-more-note">seed <code>data/seed/season.json</code></span></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - You built it
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 5 · Definition of done</span>
+    <h2>This is your product</h2>
+    <div class="goals-checklist" style="margin-top: 12px; max-width: 960px">
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Browser chatbot: not a terminal script</span>
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Streams · recognizable states</span>
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>OpenAI classify → SQL branches → grounded stream</span>
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Answers grounded in Postgres rows</span>
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Golden questions + refusal verified by you</span>
+      </div>
+    </div>
+
+<nav class="learn-more" aria-label="Next steps">
+  <span class="learn-more-label">Next steps</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/WORKSHOP.md" rel="noopener" target="_blank">WORKSHOP.md</a></li>
+    <li><span class="learn-more-note">homework: wrap queries as MCP tools (</span></li>
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/mcp/README.md" rel="noopener" target="_blank">mcp/README.md</a></li>
+    <li><span class="learn-more-note">)</span></li>
+  </ul>
+</nav>
+</div>
+</section>

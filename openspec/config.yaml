@@ -1,0 +1,50 @@
+schema: spec-driven
+
+context: |
+  Workshop: DL School B07/26 · Module 4 · Session 4 — Implementing AI Features & Chatbots.
+  Product: Northstar Handbook Assistant — a chatbot attendees build themselves by stacking
+  components from earlier sessions (automation mindset, context/playbooks, MCP, RAG/vectors).
+
+  Teaching point: composition → product. RAG is one layer late in the build, not the whole story.
+  Attendees should leave having seen a chatbot they wired step by step.
+
+  Build path (majority of session time):
+  1. Start development (scaffold Next.js app)
+  2. Initial chat interface (UI shell)
+  3. Wire model streaming (/api/chat + useChat)
+  4. Call the shared handbook MCP (Session 3 server / tools)
+  5. Bring in RAG / retrieval grounding where it helps
+  6. Query with golden questions + refusal
+
+  Short theory: streaming, UI/error states, how pieces click together.
+
+  This OpenSpec root lives in the Reveal deck repo (`dl-ai-chatbots`) as a planning mirror.
+  Canonical apply target: https://github.com/drublic/dl-school-chatbots
+  (local: ../dl-school-chatbots) — attendees open OpenSpec there.
+
+  Stack:
+  - Next.js App Router + TypeScript + Tailwind
+  - Vercel AI SDK: `ai`, `@ai-sdk/openai`, `@ai-sdk/react`, `@ai-sdk/mcp`
+  - Client: `useChat` + `DefaultChatTransport` → `/api/chat`
+  - Server: `streamText`, UI message stream; MCP via `createMCPClient` + `tools()`
+  - Reuse Session 3 handbook MCP (`search_documents` / related) against `workshop-shared`
+  - Pinecone / embeddings only when adding the RAG step; embedding model must match ingest
+  - Env: OPENAI_API_KEY, OPENAI_MODEL, PINECONE_*, MCP server path or URL as needed
+
+rules:
+  proposal:
+    - "Keep one change for the whole MVP; prefer a single capability"
+    - "Frame as composing prior session components; RAG is a late step, not the headline"
+    - "Always include Non-goals covering homework and slide-deck work"
+  design:
+    - "Build order must match workshop steps: scaffold → UI → wire → MCP → RAG → query"
+    - "Prefer AI SDK + MCP client; call out embedding-model match when RAG is added"
+  tasks:
+    - "Order tasks to match the six build steps; theory is out of scope for apply"
+    - "Each task should be verifiable locally without Vercel deploy"
+
+operations:
+  apply:
+    guidance:
+      - "Implement in the dl-school-chatbots companion repo; do not modify Reveal slide HTML unless a task says so"
+      - "Keep secrets in .env.local only; never commit keys"

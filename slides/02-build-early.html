@@ -1,0 +1,359 @@
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Build divider
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner section-break on-photo">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <p class="section-break-kicker">Hands-on · most of the evening</p>
+    <h1 class="section-break-title">
+      Build your <span class="u">chatbot</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 1 divider
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner section-break on-photo">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <p class="section-break-kicker">Step 1 of 5</p>
+    <h1 class="section-break-title">
+      Start <span class="u">development</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 1 scaffold
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 1 · Scaffold</span>
+    <h2>Create the Next.js app</h2>
+    <div class="code-terminal" style="max-width: 1040px">
+      <div class="code-terminal-bar">
+        <span class="code-terminal-dot" style="background: #ff5f56"></span>
+        <span class="code-terminal-dot" style="background: #ffbd2e"></span>
+        <span class="code-terminal-dot" style="background: #27c93f"></span>
+        <span class="code-terminal-title">terminal</span>
+      </div>
+      <div class="code-terminal-body">
+        <pre><code><span class="c-green">git clone git@github.com:drublic/dl-school-chatbots.git</span>
+<span class="c-green">cd dl-school-chatbots</span>
+<span class="c-green">npm install</span>
+<span class="c-green">cp env.example .env.local</span>  <span class="c-comment"># OPENAI_API_KEY + DATABASE_URL</span>
+<span class="c-green">DATABASE_URL=... npm run db:seed</span>
+<span class="c-green">npm run dev</span></code></pre>
+      </div>
+    </div>
+    <p class="code-pkgs">
+      <span class="code-pkgs-label">includes</span>
+      <code>ai</code>
+      <code>@ai-sdk/react</code>
+      <code>@ai-sdk/openai</code>
+      <code>postgres</code>
+      <code>zod</code>
+    </p>
+    <div class="callout" style="max-width: 920px; margin-top: 16px">
+      Checkpoint: hub at <code>localhost:3000</code>. Tour:
+      <code>/anatomy</code>. Build: <code>/chat</code>. Peek: <code>/reference</code>.
+    </div>
+
+<nav class="learn-more" aria-label="Repo">
+  <span class="learn-more-label">Repo</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots" rel="noopener" target="_blank">dl-school-chatbots</a></li>
+    <li><a class="link-blue" href="https://nextjs.org/docs/app/getting-started" rel="noopener" target="_blank">Next.js App Router</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 2 divider
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner section-break on-photo">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <p class="section-break-kicker">Step 2 of 5</p>
+    <h1 class="section-break-title">
+      Initial <span class="u">interface</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 2 UI shell
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 2 · Chat shell</span>
+    <h2>Build the UI before the brain</h2>
+    <div class="goals-checklist" style="margin-top: 8px; max-width: 960px">
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Message list area (empty state is fine)</span>
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Text input + Send button</span>
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >Hook up <code>useChat</code> + <code>DefaultChatTransport</code> to
+          <code>/api/chat</code></span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Render <code>message.parts</code> (text for now)</span>
+      </div>
+    </div>
+    <div class="callout" style="max-width: 920px">
+      Checkpoint: you can type; the API may still 404. That’s OK.
+    </div>
+
+<nav class="learn-more" aria-label="Docs">
+  <span class="learn-more-label">Docs</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/ai-sdk-ui/chatbot" rel="noopener" target="_blank">Chatbot guide</a></li>
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat" rel="noopener" target="_blank">useChat</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 2 code hint
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top slide-compact">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 2 · Sketch</span>
+    <h2><code>app/chat/chat-starter.tsx</code></h2>
+    <div class="code-terminal compact" style="max-width: 1080px">
+      <div class="code-terminal-bar">
+        <span class="code-terminal-dot" style="background: #ff5f56"></span>
+        <span class="code-terminal-dot" style="background: #ffbd2e"></span>
+        <span class="code-terminal-dot" style="background: #27c93f"></span>
+        <span class="code-terminal-title">app/chat/chat-starter.tsx</span>
+      </div>
+      <div class="code-terminal-body">
+        <pre><code><span class="c-str">'use client'</span>;
+<span class="c-kw">import</span> { useChat } <span class="c-kw">from</span> <span class="c-str">'@ai-sdk/react'</span>;
+<span class="c-kw">import</span> { DefaultChatTransport } <span class="c-kw">from</span> <span class="c-str">'ai'</span>;
+
+<span class="c-kw">const</span> { messages, sendMessage, status, error, stop } = useChat({
+  transport: <span class="c-kw">new</span> DefaultChatTransport({ api: <span class="c-str">'/api/chat'</span> }),
+});
+<span class="c-comment">// list · input · sendMessage({ text }) · disable when status !== 'ready'</span></code></pre>
+      </div>
+    </div>
+    <p class="code-pkgs">
+      <span class="code-pkgs-label">install</span>
+      <code>npm i ai @ai-sdk/react</code>
+    </p>
+
+<nav class="learn-more" aria-label="Docs">
+  <span class="learn-more-label">Docs</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat" rel="noopener" target="_blank">useChat</a></li>
+    <li><a class="link-blue" href="https://www.npmjs.com/package/@ai-sdk/react" rel="noopener" target="_blank">@ai-sdk/react</a></li>
+    <li><span class="learn-more-note">from scratch <code>app/chat/chat-starter.tsx</code> · OpenSpec · peek <code>/reference</code></span></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 3 divider
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner section-break on-photo">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <p class="section-break-kicker">Step 3 of 5</p>
+    <h1 class="section-break-title">
+      Wire <span class="u">everything</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 3 route
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top slide-compact">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 3 · Streaming API</span>
+    <h2><code>app/api/chat/route.ts</code>: no tools yet</h2>
+    <div class="code-terminal compact" style="max-width: 1080px">
+      <div class="code-terminal-bar">
+        <span class="code-terminal-dot" style="background: #ff5f56"></span>
+        <span class="code-terminal-dot" style="background: #ffbd2e"></span>
+        <span class="code-terminal-dot" style="background: #27c93f"></span>
+        <span class="code-terminal-title">app/api/chat/route.ts</span>
+      </div>
+      <div class="code-terminal-body">
+        <pre><code><span class="c-kw">import</span> { openai } <span class="c-kw">from</span> <span class="c-str">'@ai-sdk/openai'</span>;
+<span class="c-kw">import</span> {
+  convertToModelMessages, createUIMessageStreamResponse,
+  streamText, toUIMessageStream, <span class="c-kw">type</span> UIMessage,
+} <span class="c-kw">from</span> <span class="c-str">'ai'</span>;
+
+<span class="c-kw">export async function</span> <span class="c-green">POST</span>(req: Request) {
+  <span class="c-kw">const</span> { messages }: { messages: UIMessage[] } = <span class="c-kw">await</span> req.json();
+  <span class="c-kw">const</span> result = streamText({
+    model: openai(process.env.OPENAI_MODEL!),
+    instructions: <span class="c-str">'You are the race-season assistant…'</span>,
+    messages: <span class="c-kw">await</span> convertToModelMessages(messages),
+  });
+  <span class="c-kw">return</span> createUIMessageStreamResponse({
+    stream: toUIMessageStream({ stream: result.stream }),
+  });
+}</code></pre>
+      </div>
+    </div>
+    <p class="code-pkgs">
+      <span class="code-pkgs-label">install</span>
+      <code>npm i ai @ai-sdk/openai</code>
+    </p>
+
+<nav class="learn-more" aria-label="Docs">
+  <span class="learn-more-label">Docs</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/ai-sdk-core/generating-text" rel="noopener" target="_blank">streamText</a></li>
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/ai-sdk-ui/stream-protocol" rel="noopener" target="_blank">UI stream protocol</a></li>
+    <li><a class="link-blue" href="https://www.npmjs.com/package/@ai-sdk/openai" rel="noopener" target="_blank">@ai-sdk/openai</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 3 states
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Step 3 · States in the UI</span>
+    <h2>Make streaming &amp; errors obvious</h2>
+    <div class="goals-checklist" style="margin-top: 8px; max-width: 960px">
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >Disable Send when <code>status !== 'ready'</code></span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Show spinner / “Thinking…” while submitted/streaming</span>
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span>Optional <code>stop()</code> button mid-stream</span>
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          >On <code>error</code>: generic message + retry: no raw stack
+          traces</span
+        >
+      </div>
+    </div>
+    <div class="callout" style="max-width: 920px">
+      <strong>Checkpoint:</strong> ask “Hi, who are you?”; tokens stream. Break
+      the key once on purpose and confirm the error state.
+    </div>
+
+<nav class="learn-more" aria-label="Status / stop">
+  <span class="learn-more-label">Status / stop</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat" rel="noopener" target="_blank">useChat helpers</a></li>
+    <li><span class="learn-more-note">(<code>status</code>, <code>stop</code>, <code>error</code>)</span></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         BREAK 1
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner mvp-break">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <span class="eyebrow mvp-break-eyebrow">Break 1 of 2 · ~10 minutes</span>
+    <h1 class="mvp-break-title">Next: classify + query.</h1>
+    <p class="mvp-break-lead">
+      Your UI streams. Now OpenAI picks an intent and we hit Postgres.
+    </p>
+  </div>
+</section>
