@@ -2,21 +2,22 @@ schema: spec-driven
 
 context: |
   Workshop: DL School B07/26 · Module 4 · Session 4 — Implementing AI Features & Chatbots.
-  Product: Northstar Handbook Assistant — a chatbot attendees build themselves by stacking
-  components from earlier sessions (automation mindset, context/playbooks, MCP, RAG/vectors).
+  Product: Race-season assistant — a chatbot attendees wire themselves (OpenAI classify +
+  shared Postgres season data + streaming UI).
 
-  Teaching point: composition → product. RAG is one layer late in the build, not the whole story.
-  Attendees should leave having seen a chatbot they wired step by step.
+  Teaching point: composition → product. Prior sessions (automation, context, MCP · RAG)
+  set the mindset; tonight’s live path is classify → SQL → stream. MCP wrap of query
+  helpers is optional homework, not a live build step.
 
-  Build path (majority of session time):
-  1. Start development (scaffold Next.js app)
-  2. Initial chat interface (UI shell)
-  3. Wire model streaming (/api/chat + useChat)
-  4. Call the shared handbook MCP (Session 3 server / tools)
-  5. Bring in RAG / retrieval grounding where it helps
-  6. Query with golden questions + refusal
+  Build path (majority of session time) — five companion checkpoints (not greenfield create-next-app):
+  1. Start development (run companion: env, seed, hub)
+  2. Initial chat interface (UI shell + useChat)
+  3. Wire model streaming (/api/chat + visible states)
+  4. Classify the question, then query Postgres (experimental_decide → lib/queries)
+  5. Query with golden questions + refusal in the browser
 
-  Short theory: streaming, UI/error states, how pieces click together.
+  Short theory: streaming, UI/error states, chat anatomy, how pieces click together.
+  OpenSpec change name in the companion: build-race-season-assistant.
 
   This OpenSpec root lives in the Reveal deck repo (`dl-ai-chatbots`) as a planning mirror.
   Canonical apply target: https://github.com/drublic/dl-school-chatbots
@@ -24,23 +25,23 @@ context: |
 
   Stack:
   - Next.js App Router + TypeScript + Tailwind
-  - Vercel AI SDK: `ai`, `@ai-sdk/openai`, `@ai-sdk/react`, `@ai-sdk/mcp`
+  - Vercel AI SDK: `ai`, `@ai-sdk/openai`, `@ai-sdk/react`
   - Client: `useChat` + `DefaultChatTransport` → `/api/chat`
-  - Server: `streamText`, UI message stream; MCP via `createMCPClient` + `tools()`
-  - Reuse Session 3 handbook MCP (`search_documents` / related) against `workshop-shared`
-  - Pinecone / embeddings only when adding the RAG step; embedding model must match ingest
-  - Env: OPENAI_API_KEY, OPENAI_MODEL, PINECONE_*, MCP server path or URL as needed
+  - Server: `streamText`, UI message stream; classify via `experimental_decide` + `choice`
+  - Season facts from shared Postgres (`lib/queries`); not model memory
+  - Env: OPENAI_API_KEY, OPENAI_MODEL, DATABASE_URL
+  - Optional homework: MCP wrap of the same query helpers; deploy
 
 rules:
   proposal:
     - "Keep one change for the whole MVP; prefer a single capability"
-    - "Frame as composing prior session components; RAG is a late step, not the headline"
+    - "Frame as race-season classify → SQL → stream; MCP/RAG are prior-session or homework"
     - "Always include Non-goals covering homework and slide-deck work"
   design:
-    - "Build order must match workshop steps: scaffold → UI → wire → MCP → RAG → query"
-    - "Prefer AI SDK + MCP client; call out embedding-model match when RAG is added"
+    - "Build order must match workshop steps: companion → UI → wire → classify+SQL → query"
+    - "Prefer AI SDK Decisions + Postgres; do not require handbook MCP or Pinecone for the live path"
   tasks:
-    - "Order tasks to match the six build steps; theory is out of scope for apply"
+    - "Order tasks to match the five build steps; theory is out of scope for apply"
     - "Each task should be verifiable locally without Vercel deploy"
 
 operations:

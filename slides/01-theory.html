@@ -12,7 +12,7 @@
     </div>
     <p class="section-break-kicker">Short theory · then we build</p>
     <h1 class="section-break-title">
-      Compose the <span class="u">product</span>
+      Compose the <span class="u">Product</span>
     </h1>
   </div>
 </section>
@@ -31,9 +31,10 @@
     </div>
 
     <span class="eyebrow">Theory · Teaching point</span>
-    <h2>You already have the parts</h2>
+    <h2>You Already Have the Parts</h2>
     <p class="speaker-lead stage-path-lead">
-      Four sessions. One stack. Tonight we wire them into a product.
+      Four sessions. One arc. Tonight we ship a product UI — not another RAG
+      lab.
     </p>
 
     <div class="stage-path" aria-label="Module progression">
@@ -60,14 +61,15 @@
         <div class="stage-card-num">S4</div>
         <h3 class="stage-card-title">Product UI</h3>
         <p class="stage-card-body">
-          Chatbot in the browser: classify, query, stream.
+          Classify → SQL → stream in the browser.
         </p>
       </article>
     </div>
 
     <div class="callout stage-path-callout">
-      Tonight’s win is not “more RAG.” It’s
-      <strong>stacking what you built</strong> until a colleague can use it.
+      We reuse the <strong>habits</strong> from S1–S3 (act · frame · ground).
+      Tonight’s live pipe is <strong>classify → Postgres</strong> — not wiring
+      handbook MCP or RAG in the room. MCP wrap of queries is homework.
     </div>
   </div>
 </section>
@@ -86,22 +88,31 @@
     </div>
 
     <span class="eyebrow">Theory · Inventory</span>
-    <h2>Components we bring in</h2>
+    <h2>What Comes From Where</h2>
     <div class="compare-grid" style="grid-template-columns: repeat(3, 1fr)">
       <div class="compare-card">
+        <div class="pattern-badge">From S1–S3</div>
+        <h3>Mindset</h3>
+        <p>
+          Automate · frame context · ground answers. Same habits — different
+          pipe tonight.
+        </p>
+      </div>
+      <div class="compare-card">
+        <div class="pattern-badge">Shared · new shell</div>
+        <h3>Season DB + Chat UI</h3>
+        <p>
+          Seeded Postgres for facts · Next.js <code>useChat</code> shell you
+          wire.
+        </p>
+      </div>
+      <div class="compare-card">
         <div class="pattern-badge">New tonight</div>
-        <h3>Chat product shell</h3>
-        <p>Next.js · <code>useChat</code> · streaming states</p>
-      </div>
-      <div class="compare-card">
-        <div class="pattern-badge">Shared DB</div>
-        <h3>Season Postgres</h3>
-        <p>Races · start lists · seed from raceplanner</p>
-      </div>
-      <div class="compare-card">
-        <div class="pattern-badge">AI SDK</div>
-        <h3>Classify + stream</h3>
-        <p><code>experimental_decide</code> · <code>streamText</code></p>
+        <h3>Classify → Stream</h3>
+        <p>
+          <code>experimental_decide</code> picks the SQL branch ·
+          <code>streamText</code> answers from rows.
+        </p>
       </div>
     </div>
 
@@ -130,7 +141,12 @@
     </div>
 
     <span class="eyebrow">Theory · Streaming</span>
-    <h2>Why chat UIs stream</h2>
+    <h2>Why Chat UIs Stream</h2>
+    <p class="speaker-lead" style="max-width: 920px">
+      <strong>Streaming</strong> means the model sends tokens as they are
+      generated — over the wire, piece by piece — instead of waiting for the
+      full answer, then dumping it at once.
+    </p>
     <div class="goals-checklist" style="margin-top: 12px; max-width: 960px">
       <div class="goals-item">
         <span class="check"></span
@@ -184,7 +200,7 @@
     </div>
 
     <span class="eyebrow">Theory · Error recognition</span>
-    <h2>States you must make visible</h2>
+    <h2>States You Must Make Visible</h2>
     <table class="term-table" style="margin-top: 12px; max-width: 980px">
       <thead>
         <tr>
@@ -226,6 +242,58 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
+         SLIDE - Goldens + refusal (define early)
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Theory · Done means verified</span>
+    <h2>Golden Questions + Refusal</h2>
+    <p class="speaker-lead" style="max-width: 920px">
+      Before we build: how you’ll prove the bot works — same language as the
+      goals and OpenSpec.
+    </p>
+    <div class="compare-grid" style="grid-template-columns: repeat(2, 1fr)">
+      <div class="compare-card">
+        <div class="pattern-badge">Golden</div>
+        <h3>Known-good season asks</h3>
+        <p>
+          Fixed questions with expected answers from the seeded DB (e.g. Merken
+          Amateure → <strong>6</strong> riders). You run them in
+          <code>/chat</code>.
+        </p>
+      </div>
+      <div class="compare-card">
+        <div class="pattern-badge">Refusal</div>
+        <h3>Off-domain stays off</h3>
+        <p>
+          Stock tickers, weather, unrelated trivia: classify →
+          <code>refuse</code> — no fake SQL, no invented riders.
+        </p>
+      </div>
+    </div>
+    <div class="callout" style="max-width: 920px; margin-top: 16px">
+      Step 5 is not “try random chats.” It is: goldens pass + one refusal you
+      can demo.
+    </div>
+
+<nav class="learn-more" aria-label="Goldens">
+  <span class="learn-more-label">Later</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/data/golden-questions.md" rel="noopener" target="_blank">data/golden-questions.md</a></li>
+  </ul>
+</nav>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
          SLIDE - Chat UI anatomy (numbered)
     ══════════════════════════════════════════════════════ -->
 <section data-background-color="#ffffff">
@@ -241,7 +309,7 @@
     <div class="chat-anatomy-head">
       <div>
         <span class="eyebrow">Before we build · Live demo</span>
-        <h2>Anatomy of the chat interface</h2>
+        <h2>Anatomy of the Chat Interface</h2>
       </div>
       <p class="chat-anatomy-live">
         Live: <code>localhost:3000/anatomy</code> · build <code>/chat</code> · peek <code>/reference</code>
@@ -345,12 +413,16 @@
     </div>
 
     <span class="eyebrow">Theory → Build</span>
-    <h2>Tonight’s five steps</h2>
+    <h2>Tonight’s Five Steps</h2>
+    <p class="speaker-lead" style="max-width: 920px">
+      Companion checkpoints inside <code>dl-school-chatbots</code> — not a blank
+      <code>create-next-app</code>.
+    </p>
     <div class="step-list step-list-five">
       <div class="step-item">
         <span class="step-num">01</span>
         <div>
-          <div class="step-text">Start development: scaffold the app</div>
+          <div class="step-text">Start: run the companion (env · seed · hub)</div>
         </div>
       </div>
       <div class="step-item">
@@ -368,14 +440,75 @@
       <div class="step-item">
         <span class="step-num">04</span>
         <div>
-          <div class="step-text">Classify + query: OpenAI classify + Postgres</div>
+          <div class="step-text">Classify + query: Decisions → Postgres</div>
         </div>
       </div>
       <div class="step-item">
         <span class="step-num">05</span>
         <div>
-          <div class="step-text">Query: golden questions · show your bot</div>
+          <div class="step-text">Query: golden questions · refusal · show your bot</div>
         </div>
+      </div>
+    </div>
+    <div class="callout" style="max-width: 960px; margin-top: 16px">
+      These five steps are already written in
+      <code>openspec/changes/build-race-season-assistant/tasks.md</code> —
+      next we open that map (OpenSpec).
+    </div>
+
+<nav class="learn-more" aria-label="Build order">
+  <span class="learn-more-label">Build order</span>
+  <ul class="learn-more-list">
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/openspec/changes/build-race-season-assistant/tasks.md" rel="noopener" target="_blank">tasks.md</a></li>
+    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/WORKSHOP.md" rel="noopener" target="_blank">WORKSHOP.md</a></li>
+  </ul>
+</nav>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - What We Learned · Theory
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff" data-slide-tag="summary">
+  <div class="slide-inner top">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <span class="eyebrow">Recap · Theory</span>
+    <h2 style="margin-bottom: 8px">What We Learned</h2>
+    <div class="recap-layout">
+      <div class="recap-takeaways">
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Reuse S1–S3 habits; ship classify → SQL → stream. MCP wrap is
+            homework — not tonight’s live path.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Chat UIs stream: first tokens beat a spinner; users can stop; errors
+            must be readable. Goldens + refusal = done.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Five companion checkpoints in <code>tasks.md</code>: run → shell →
+            stream → classify + SQL → goldens in <code>/chat</code>.
+          </p>
+        </div>
+      </div>
+      <div class="recap-phrases">
+        <div class="recap-phrase">Habits in, product out.</div>
+        <div class="recap-phrase">Streaming is the product.</div>
+        <div class="recap-phrase">tasks.md is the map.</div>
       </div>
     </div>
   </div>

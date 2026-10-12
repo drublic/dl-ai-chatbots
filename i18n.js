@@ -41,8 +41,8 @@
     ".speaker-role-line",
     ".speaker-contact",
     ".speaker-focus span",
-    ".speaker-card-body .name",
-    ".speaker-card-body .role",
+    ".timeline-body > strong",
+    ".timeline-meta",
     ".practice-title",
     ".practice-meta-block",
     ".practice-check-item",
@@ -194,7 +194,7 @@
     while (p) {
       if (p.matches && p.matches(SELECTORS)) return true;
       if (p.classList && p.classList.contains("slide-inner")) break;
-      if (p.id === "nav-overlay" || p.id === "lang-switch") break;
+      if (p.id === "nav-overlay") break;
       p = p.parentElement;
     }
     return false;
@@ -268,14 +268,6 @@
     );
   }
 
-  function updateSwitchUI(lang) {
-    document.querySelectorAll("[data-lang-option]").forEach(function (btn) {
-      var on = btn.getAttribute("data-lang-option") === lang;
-      btn.classList.toggle("is-active", on);
-      btn.setAttribute("aria-pressed", on ? "true" : "false");
-    });
-  }
-
   function rebuildNavIfPossible() {
     if (typeof window.navRebuild === "function") {
       window.navRebuild();
@@ -315,7 +307,6 @@
 
     updateSlideTags(lang);
     updateFooter(lang);
-    updateSwitchUI(lang);
     rebuildNavIfPossible();
 
     if (!opts.silent) {
@@ -327,16 +318,6 @@
 
   function toggleLanguage() {
     setLanguage(current === "en" ? "de" : "en");
-  }
-
-  function initSwitch() {
-    var root = document.getElementById("lang-switch");
-    if (!root) return;
-    root.addEventListener("click", function (e) {
-      var btn = e.target.closest("[data-lang-option]");
-      if (!btn) return;
-      setLanguage(btn.getAttribute("data-lang-option"));
-    });
   }
 
   function loadTranslations() {
@@ -368,7 +349,6 @@
   };
 
   function boot() {
-    initSwitch();
     updateFooter("en");
     var params = new URLSearchParams(window.location.search);
     var fromUrl = params.get("lang");
@@ -386,10 +366,7 @@
     loadTranslations().then(function () {
       captureAllOriginals();
       if (initial === "de") setLanguage("de", { silent: true });
-      else {
-        current = "en";
-        updateSwitchUI("en");
-      }
+      else current = "en";
     });
   }
 

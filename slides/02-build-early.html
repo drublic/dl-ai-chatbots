@@ -12,7 +12,7 @@
     </div>
     <p class="section-break-kicker">Hands-on · most of the evening</p>
     <h1 class="section-break-title">
-      Build your <span class="u">chatbot</span>
+      Build Your <span class="u">Chatbot</span>
     </h1>
   </div>
 </section>
@@ -31,7 +31,7 @@
     </div>
     <p class="section-break-kicker">Step 1 of 5</p>
     <h1 class="section-break-title">
-      Start <span class="u">development</span>
+      Start <span class="u">Development</span>
     </h1>
   </div>
 </section>
@@ -40,7 +40,7 @@
          SLIDE - Step 1 scaffold
     ══════════════════════════════════════════════════════ -->
 <section data-background-color="#ffffff">
-  <div class="slide-inner top">
+  <div class="slide-inner top practice-slide">
     <div class="dl-header">
       <img alt="DL" src="images/dl-school-logo-icon.svg" />
       <div class="dl-header-text">
@@ -49,45 +49,83 @@
       </div>
     </div>
 
-    <span class="eyebrow">Step 1 · Scaffold</span>
-    <h2>Create the Next.js app</h2>
-    <div class="code-terminal" style="max-width: 1040px">
-      <div class="code-terminal-bar">
-        <span class="code-terminal-dot" style="background: #ff5f56"></span>
-        <span class="code-terminal-dot" style="background: #ffbd2e"></span>
-        <span class="code-terminal-dot" style="background: #27c93f"></span>
-        <span class="code-terminal-title">terminal</span>
+    <div class="practice-layout">
+      <div class="practice-copy">
+        <h2 class="practice-title">Practice.</h2>
+        <div class="practice-meta">
+          <div class="practice-meta-block">
+            <span class="label">Live · Step 1:</span> Run the companion
+            <span class="detail"
+              >Not greenfield scaffold — checkpoint in the cloned repo. Hub at
+              <code>localhost:3000</code>. Tour <code>/anatomy</code> · build
+              <code>/chat</code> · peek <code>/reference</code>.</span
+            >
+          </div>
+          <div class="practice-meta-block">
+            <span class="label">Tools:</span> Terminal ·
+            <code>ai</code> · <code>@ai-sdk/react</code> ·
+            <code>postgres</code>
+          </div>
+        </div>
       </div>
-      <div class="code-terminal-body">
-        <pre><code><span class="c-green">git clone git@github.com:drublic/dl-school-chatbots.git</span>
-<span class="c-green">cd dl-school-chatbots</span>
-<span class="c-green">npm install</span>
-<span class="c-green">cp env.example .env.local</span>  <span class="c-comment"># OPENAI_API_KEY + DATABASE_URL</span>
-<span class="c-green">DATABASE_URL=... npm run db:seed</span>
-<span class="c-green">npm run dev</span></code></pre>
-      </div>
-    </div>
-    <p class="code-pkgs">
-      <span class="code-pkgs-label">includes</span>
-      <code>ai</code>
-      <code>@ai-sdk/react</code>
-      <code>@ai-sdk/openai</code>
-      <code>postgres</code>
-      <code>zod</code>
-    </p>
-    <div class="callout" style="max-width: 920px; margin-top: 16px">
-      Checkpoint: hub at <code>localhost:3000</code>. Tour:
-      <code>/anatomy</code>. Build: <code>/chat</code>. Peek: <code>/reference</code>.
+      <aside class="practice-card">
+        <div class="practice-check-list">
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >Companion open (from setup) →
+              <code>cd dl-school-chatbots</code></span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span><span><code>npm install</code></span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              ><code>cp env.example .env.local</code> — fill
+              <code>OPENAI_API_KEY</code> + <code>DATABASE_URL</code></span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span><code>DATABASE_URL=… npm run db:seed</code></span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              ><code>npm run dev</code> — open
+              <code>localhost:3000</code></span
+            >
+          </div>
+        </div>
+      </aside>
     </div>
 
-<nav class="learn-more" aria-label="Repo">
-  <span class="learn-more-label">Repo</span>
-  <ul class="learn-more-list">
-    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots" rel="noopener" target="_blank">dl-school-chatbots</a></li>
-    <li><a class="link-blue" href="https://nextjs.org/docs/app/getting-started" rel="noopener" target="_blank">Next.js App Router</a></li>
-  </ul>
-</nav>
-</div>
+    <nav class="learn-more" aria-label="Repo">
+      <span class="learn-more-label">Repo</span>
+      <ul class="learn-more-list">
+        <li>
+          <a
+            class="link-blue"
+            href="https://github.com/drublic/dl-school-chatbots"
+            rel="noopener"
+            target="_blank"
+            >dl-school-chatbots</a
+          >
+        </li>
+        <li>
+          <a
+            class="link-blue"
+            href="https://nextjs.org/docs/app/getting-started"
+            rel="noopener"
+            target="_blank"
+            >Next.js App Router</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
@@ -104,7 +142,7 @@
     </div>
     <p class="section-break-kicker">Step 2 of 5</p>
     <h1 class="section-break-title">
-      Initial <span class="u">interface</span>
+      Initial <span class="u">Interface</span>
     </h1>
   </div>
 </section>
@@ -113,7 +151,7 @@
          SLIDE - Step 2 UI shell
     ══════════════════════════════════════════════════════ -->
 <section data-background-color="#ffffff">
-  <div class="slide-inner top">
+  <div class="slide-inner top practice-slide">
     <div class="dl-header">
       <img alt="DL" src="images/dl-school-logo-icon.svg" />
       <div class="dl-header-text">
@@ -122,41 +160,71 @@
       </div>
     </div>
 
-    <span class="eyebrow">Step 2 · Chat shell</span>
-    <h2>Build the UI before the brain</h2>
-    <div class="goals-checklist" style="margin-top: 8px; max-width: 960px">
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>Message list area (empty state is fine)</span>
+    <div class="practice-layout">
+      <div class="practice-copy">
+        <h2 class="practice-title">Practice.</h2>
+        <div class="practice-meta">
+          <div class="practice-meta-block">
+            <span class="label">Live · Step 2:</span> Build the UI before the
+            brain
+            <span class="detail"
+              >Checkpoint: you can type; the API may still 404. That’s OK.</span
+            >
+          </div>
+          <div class="practice-meta-block">
+            <span class="label">Tools:</span> <code>useChat</code> ·
+            <code>DefaultChatTransport</code> · <code>/chat</code>
+          </div>
+        </div>
       </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>Text input + Send button</span>
-      </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span
-          >Hook up <code>useChat</code> + <code>DefaultChatTransport</code> to
-          <code>/api/chat</code></span
-        >
-      </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>Render <code>message.parts</code> (text for now)</span>
-      </div>
-    </div>
-    <div class="callout" style="max-width: 920px">
-      Checkpoint: you can type; the API may still 404. That’s OK.
+      <aside class="practice-card">
+        <div class="practice-check-list">
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span>Message list area (empty state is fine)</span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span><span>Text input + Send button</span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >Hook up <code>useChat</code> +
+              <code>DefaultChatTransport</code> to <code>/api/chat</code></span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span>Render <code>message.parts</code> (text for now)</span>
+          </div>
+        </div>
+      </aside>
     </div>
 
-<nav class="learn-more" aria-label="Docs">
-  <span class="learn-more-label">Docs</span>
-  <ul class="learn-more-list">
-    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/ai-sdk-ui/chatbot" rel="noopener" target="_blank">Chatbot guide</a></li>
-    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat" rel="noopener" target="_blank">useChat</a></li>
-  </ul>
-</nav>
-</div>
+    <nav class="learn-more" aria-label="Docs">
+      <span class="learn-more-label">Docs</span>
+      <ul class="learn-more-list">
+        <li>
+          <a
+            class="link-blue"
+            href="https://sdk.vercel.ai/docs/ai-sdk-ui/chatbot"
+            rel="noopener"
+            target="_blank"
+            >Chatbot guide</a
+          >
+        </li>
+        <li>
+          <a
+            class="link-blue"
+            href="https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat"
+            rel="noopener"
+            target="_blank"
+            >useChat</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
@@ -222,7 +290,7 @@
     </div>
     <p class="section-break-kicker">Step 3 of 5</p>
     <h1 class="section-break-title">
-      Wire <span class="u">everything</span>
+      Wire <span class="u">Everything</span>
     </h1>
   </div>
 </section>
@@ -241,7 +309,7 @@
     </div>
 
     <span class="eyebrow">Step 3 · Streaming API</span>
-    <h2><code>app/api/chat/route.ts</code>: no tools yet</h2>
+    <h2><code>app/api/chat/route.ts</code>: No Tools Yet</h2>
     <div class="code-terminal compact" style="max-width: 1080px">
       <div class="code-terminal-bar">
         <span class="code-terminal-dot" style="background: #ff5f56"></span>
@@ -289,6 +357,88 @@
          SLIDE - Step 3 states
     ══════════════════════════════════════════════════════ -->
 <section data-background-color="#ffffff">
+  <div class="slide-inner top practice-slide">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <div class="practice-layout">
+      <div class="practice-copy">
+        <h2 class="practice-title">Practice.</h2>
+        <div class="practice-meta">
+          <div class="practice-meta-block">
+            <span class="label">Live · Step 3:</span> Make streaming &amp;
+            errors obvious
+            <span class="detail"
+              >Ask “Hi, who are you?” — tokens stream. Break the key once on
+              purpose and confirm the error state.</span
+            >
+          </div>
+          <div class="practice-meta-block">
+            <span class="label">Tools:</span> <code>status</code> ·
+            <code>stop()</code> · <code>error</code>
+          </div>
+        </div>
+      </div>
+      <aside class="practice-card">
+        <div class="practice-check-list">
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >Disable Send when <code>status !== 'ready'</code></span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >Show spinner / “Thinking…” while submitted/streaming</span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span>Optional <code>stop()</code> button mid-stream</span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >On <code>error</code>: generic message + retry — no raw stack
+              traces</span
+            >
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <nav class="learn-more" aria-label="Status / stop">
+      <span class="learn-more-label">Status / stop</span>
+      <ul class="learn-more-list">
+        <li>
+          <a
+            class="link-blue"
+            href="https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat"
+            rel="noopener"
+            target="_blank"
+            >useChat helpers</a
+          >
+        </li>
+        <li>
+          <span class="learn-more-note"
+            >(<code>status</code>, <code>stop</code>, <code>error</code>)</span
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - What We Learned · Build early
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff" data-slide-tag="summary">
   <div class="slide-inner top">
     <div class="dl-header">
       <img alt="DL" src="images/dl-school-logo-icon.svg" />
@@ -298,44 +448,39 @@
       </div>
     </div>
 
-    <span class="eyebrow">Step 3 · States in the UI</span>
-    <h2>Make streaming &amp; errors obvious</h2>
-    <div class="goals-checklist" style="margin-top: 8px; max-width: 960px">
-      <div class="goals-item">
-        <span class="check"></span
-        ><span
-          >Disable Send when <code>status !== 'ready'</code></span
-        >
+    <span class="eyebrow">Recap · Build · Shell</span>
+    <h2 style="margin-bottom: 8px">What We Learned</h2>
+    <div class="recap-layout">
+      <div class="recap-takeaways">
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Scaffold Next.js + AI SDK first. Hub at
+            <code>localhost:3000</code> — then ship the shell.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Chat shell with <code>useChat</code> before the API is perfect. You
+            can type even if the route still 404s.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            <code>streamText</code> + obvious states: disable Send, spinner,
+            optional <code>stop()</code>, generic error + retry.
+          </p>
+        </div>
       </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>Show spinner / “Thinking…” while submitted/streaming</span>
-      </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>Optional <code>stop()</code> button mid-stream</span>
-      </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span
-          >On <code>error</code>: generic message + retry: no raw stack
-          traces</span
-        >
+      <div class="recap-phrases">
+        <div class="recap-phrase">Shell before smarts.</div>
+        <div class="recap-phrase">Stream first tokens.</div>
+        <div class="recap-phrase">States are the UX.</div>
       </div>
     </div>
-    <div class="callout" style="max-width: 920px">
-      <strong>Checkpoint:</strong> ask “Hi, who are you?”; tokens stream. Break
-      the key once on purpose and confirm the error state.
-    </div>
-
-<nav class="learn-more" aria-label="Status / stop">
-  <span class="learn-more-label">Status / stop</span>
-  <ul class="learn-more-list">
-    <li><a class="link-blue" href="https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat" rel="noopener" target="_blank">useChat helpers</a></li>
-    <li><span class="learn-more-note">(<code>status</code>, <code>stop</code>, <code>error</code>)</span></li>
-  </ul>
-</nav>
-</div>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
@@ -351,9 +496,9 @@
       </div>
     </div>
     <span class="eyebrow mvp-break-eyebrow">Break 1 of 2 · ~10 minutes</span>
-    <h1 class="mvp-break-title">Next: classify + query.</h1>
+    <h1 class="mvp-break-title">Take a Breath.</h1>
     <p class="mvp-break-lead">
-      Your UI streams. Now OpenAI picks an intent and we hit Postgres.
+      Next: classify + Postgres — your UI already streams.
     </p>
   </div>
 </section>

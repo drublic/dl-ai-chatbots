@@ -12,7 +12,7 @@
     </div>
     <p class="section-break-kicker">Step 4 of 5</p>
     <h1 class="section-break-title">
-      Classify + <span class="u">query</span>
+      Classify + <span class="u">Query</span>
     </h1>
   </div>
 </section>
@@ -31,7 +31,7 @@
     </div>
 
     <span class="eyebrow">Step 4 · Classify + SQL</span>
-    <h2>Classify the question, then query Postgres</h2>
+    <h2>Classify the Question, Then Query Postgres</h2>
     <p class="speaker-lead stage-path-lead">
       Shared season DB. <strong>Decisions API</strong> picks the SQL branch;
       heuristics fill race/category hints.
@@ -145,8 +145,10 @@
       <code>npm i ai @ai-sdk/openai postgres</code>
     </p>
     <p style="margin-top: 10px; font-size: 15px; color: var(--color-gray-text)">
-      Decisions = pick a branch. Use heuristics (or Responses later) for free-text
-      hints. Keys: <code>OPENAI_API_KEY</code> + <code>DATABASE_URL</code>.
+      <code>gpt-6-luna</code> = OpenAI <strong>Decisions</strong> model (AI SDK
+      docs) — not the same as <code>OPENAI_MODEL</code> for
+      <code>streamText</code>. Heuristics (or Responses later) fill free-text
+      race hints.
     </p>
 
 <nav class="learn-more" aria-label="Docs">
@@ -160,7 +162,7 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-         SLIDE - Step 4 checkpoint
+         SLIDE - Step 4 wire into route
     ══════════════════════════════════════════════════════ -->
 <section data-background-color="#ffffff">
   <div class="slide-inner top">
@@ -172,38 +174,158 @@
       </div>
     </div>
 
-    <span class="eyebrow">Step 4 · Checkpoint</span>
-    <h2>Season answers from Postgres</h2>
-    <div class="goals-checklist" style="margin-top: 8px; max-width: 960px">
+    <span class="eyebrow">Step 4 · Wire into the route</span>
+    <h2>Replace Bare Stream With Classify → SQL</h2>
+    <p class="speaker-lead" style="max-width: 920px">
+      Step 3’s <code>route.ts</code> only called <code>streamText</code>. Plug
+      Decisions + queries in before the stream.
+    </p>
+    <div class="goals-checklist" style="margin-top: 12px; max-width: 980px">
       <div class="goals-item">
         <span class="check"></span
         ><span
-          >Ask: <em>“How many riders on Rund um Merken for Amateure?”</em> →
-          <strong>6</strong></span
+          ><strong>Classify:</strong> <code>experimental_decide</code> in
+          <code>lib/classify.ts</code> → <code>answers.intent.choice</code></span
         >
       </div>
       <div class="goals-item">
         <span class="check"></span
-        ><span>Intent logged / status shows classify → query</span>
+        ><span
+          ><strong>Query:</strong> branch on choice →
+          <code>lib/queries.ts</code> (list / start list / count). Skip SQL on
+          <code>refuse</code></span
+        >
       </div>
       <div class="goals-item">
         <span class="check"></span
         ><span
-          >Facts come from SQL rows, not model memory</span
+          ><strong>Ground:</strong> pass query JSON into
+          <code>streamText</code> instructions — answer only from rows</span
+        >
+      </div>
+      <div class="goals-item">
+        <span class="check"></span
+        ><span
+          ><strong>Status:</strong> UI shows classify → query (not a blank
+          wait)</span
         >
       </div>
     </div>
+    <div class="callout" style="max-width: 960px; margin-top: 16px">
+      Stuck? Follow <code>WORKSHOP.md</code> Step 4 in the companion — don’t
+      invent riders from model memory.
+    </div>
 
-<nav class="learn-more" aria-label="Seed">
-  <span class="learn-more-label">Seed</span>
+<nav class="learn-more" aria-label="Wire">
+  <span class="learn-more-label">Wire</span>
   <ul class="learn-more-list">
-    <li><span class="learn-more-note"><code>npm run db:seed</code></span></li>
-    <li><span class="learn-more-note">guide</span></li>
-    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/WORKSHOP.md" rel="noopener" target="_blank">WORKSHOP.md · Step 4</a></li>
-    <li><span class="learn-more-note">MCP wrap is homework only</span></li>
+    <li>
+      <a
+        class="link-blue"
+        href="https://github.com/drublic/dl-school-chatbots/blob/main/WORKSHOP.md"
+        rel="noopener"
+        target="_blank"
+        >WORKSHOP.md · Step 4</a
+      >
+    </li>
+    <li>
+      <span class="learn-more-note"
+        ><code>lib/classify.ts</code> · <code>lib/queries.ts</code> ·
+        <code>app/api/chat/route.ts</code></span
+      >
+    </li>
   </ul>
 </nav>
-</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Step 4 checkpoint
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff">
+  <div class="slide-inner top practice-slide">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <div class="practice-layout">
+      <div class="practice-copy">
+        <h2 class="practice-title">Practice.</h2>
+        <div class="practice-meta">
+          <div class="practice-meta-block">
+            <span class="label">Live · Step 4:</span> Season answers from
+            Postgres
+            <span class="detail"
+              >Facts from SQL rows only. MCP wrap of
+              <code>lib/queries</code> is homework — not this checkpoint.</span
+            >
+          </div>
+          <div class="practice-meta-block">
+            <span class="label">Tools:</span> <code>/chat</code> ·
+            <code>npm run db:seed</code> · classify → query
+          </div>
+        </div>
+      </div>
+      <aside class="practice-card">
+        <div class="practice-check-list">
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >Route calls classify → query → grounded
+              <code>streamText</code></span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >Ask: <em>“How many riders on Rund um Merken for Amateure?”</em>
+              → <strong>6</strong></span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span>Status shows classify → query (or refuse)</span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >If empty / invents riders: re-seed · check
+              <code>DATABASE_URL</code> · inspect intent</span
+            >
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <nav class="learn-more" aria-label="If stuck">
+      <span class="learn-more-label">If stuck</span>
+      <ul class="learn-more-list">
+        <li>
+          <span class="learn-more-note"
+            ><code>DATABASE_URL=… npm run db:seed</code></span
+          >
+        </li>
+        <li>
+          <span class="learn-more-note"
+            >Always refuse? Tighten criteria · check question text</span
+          >
+        </li>
+        <li>
+          <a
+            class="link-blue"
+            href="https://github.com/drublic/dl-school-chatbots/blob/main/WORKSHOP.md"
+            rel="noopener"
+            target="_blank"
+            >WORKSHOP.md · Step 4</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
@@ -219,9 +341,9 @@
       </div>
     </div>
     <span class="eyebrow mvp-break-eyebrow">Break 2 of 2 · ~10 minutes</span>
-    <h1 class="mvp-break-title">Next: query what you built.</h1>
+    <h1 class="mvp-break-title">Next: Query What You Built.</h1>
     <p class="mvp-break-lead">
-      Golden questions · refusal · show your bot.
+      Golden questions. Refusal. Then demos of your bot.
     </p>
   </div>
 </section>
@@ -240,7 +362,7 @@
     </div>
     <p class="section-break-kicker">Step 5 of 5</p>
     <h1 class="section-break-title">
-      <span class="u">Query</span> your chatbot
+      <span class="u">Query</span> Your Chatbot
     </h1>
   </div>
 </section>
@@ -259,7 +381,7 @@
     </div>
 
     <span class="eyebrow">Step 5 · Screenshot this</span>
-    <h2>Run these in <code>/chat</code> or <code>/reference</code></h2>
+    <h2>Run These in <code>/chat</code> or <code>/reference</code></h2>
     <table class="term-table golden-q-table" style="margin-top: 4px">
       <thead>
         <tr>
@@ -306,6 +428,88 @@
          SLIDE - You built it
     ══════════════════════════════════════════════════════ -->
 <section data-background-color="#ffffff">
+  <div class="slide-inner top practice-slide">
+    <div class="dl-header">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+
+    <div class="practice-layout">
+      <div class="practice-copy">
+        <h2 class="practice-title">Practice.</h2>
+        <div class="practice-meta">
+          <div class="practice-meta-block">
+            <span class="label">Live · Step 5:</span> This is your product
+            <span class="detail"
+              >Tick every box before demos. Homework stretch: wrap queries as
+              MCP tools.</span
+            >
+          </div>
+          <div class="practice-meta-block">
+            <span class="label">Tools:</span> <code>/chat</code> · golden
+            questions · refusal path
+          </div>
+        </div>
+      </div>
+      <aside class="practice-card">
+        <div class="practice-check-list">
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span>Browser chatbot — not a terminal script</span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span>Streams · recognizable states</span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span>OpenAI classify → SQL branches → grounded stream</span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span>Answers grounded in Postgres rows</span>
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span>Golden questions + refusal verified by you</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <nav class="learn-more" aria-label="Next steps">
+      <span class="learn-more-label">Next steps</span>
+      <ul class="learn-more-list">
+        <li>
+          <a
+            class="link-blue"
+            href="https://github.com/drublic/dl-school-chatbots/blob/main/WORKSHOP.md"
+            rel="noopener"
+            target="_blank"
+            >WORKSHOP.md</a
+          >
+        </li>
+        <li>
+          <a
+            class="link-blue"
+            href="https://github.com/drublic/dl-school-chatbots/blob/main/mcp/README.md"
+            rel="noopener"
+            target="_blank"
+            >mcp/README.md</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - What We Learned · Build late
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#ffffff" data-slide-tag="summary">
   <div class="slide-inner top">
     <div class="dl-header">
       <img alt="DL" src="images/dl-school-logo-icon.svg" />
@@ -315,39 +519,37 @@
       </div>
     </div>
 
-    <span class="eyebrow">Step 5 · Definition of done</span>
-    <h2>This is your product</h2>
-    <div class="goals-checklist" style="margin-top: 12px; max-width: 960px">
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>Browser chatbot: not a terminal script</span>
+    <span class="eyebrow">Recap · Build · Query</span>
+    <h2 style="margin-bottom: 8px">What We Learned</h2>
+    <div class="recap-layout">
+      <div class="recap-takeaways">
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            OpenAI classify picks list / start list / count / refuse — then the
+            right season SQL runs.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Answers are grounded in Postgres rows from the seeded raceplanner
+            DB — not free-form inventing.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Golden questions + refusal verified in <em>your</em> browser. That’s
+            the definition of done.
+          </p>
+        </div>
       </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>Streams · recognizable states</span>
-      </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>OpenAI classify → SQL branches → grounded stream</span>
-      </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>Answers grounded in Postgres rows</span>
-      </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span>Golden questions + refusal verified by you</span>
+      <div class="recap-phrases">
+        <div class="recap-phrase">Classify, then query.</div>
+        <div class="recap-phrase">Grounded in rows.</div>
+        <div class="recap-phrase">Goldens prove done.</div>
       </div>
     </div>
-
-<nav class="learn-more" aria-label="Next steps">
-  <span class="learn-more-label">Next steps</span>
-  <ul class="learn-more-list">
-    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/WORKSHOP.md" rel="noopener" target="_blank">WORKSHOP.md</a></li>
-    <li><span class="learn-more-note">homework: wrap queries as MCP tools (</span></li>
-    <li><a class="link-blue" href="https://github.com/drublic/dl-school-chatbots/blob/main/mcp/README.md" rel="noopener" target="_blank">mcp/README.md</a></li>
-    <li><span class="learn-more-note">)</span></li>
-  </ul>
-</nav>
-</div>
+  </div>
 </section>

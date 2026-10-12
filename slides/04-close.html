@@ -12,7 +12,7 @@
     </div>
     <p class="section-break-kicker">Demos · recap · homework</p>
     <h1 class="section-break-title">
-      Show what <span class="u">you</span> built
+      Show What <span class="u">You</span> Built
     </h1>
   </div>
 </section>
@@ -21,29 +21,60 @@
          SLIDE - Lightning demos
     ══════════════════════════════════════════════════════ -->
 <section data-background-color="#ffffff">
-  <div class="slide-inner top">
+  <div class="slide-inner top lightning-slide">
     <div class="dl-header">
       <img alt="DL" src="images/dl-school-logo-icon.svg" />
       <div class="dl-header-text">
         <span class="dl-top">DIGITALE LEUTE</span>
         <span class="dl-bottom">SCHOOL</span>
       </div>
+      <span class="slide-tag slide-tag-live">Live</span>
     </div>
 
-    <span class="eyebrow">Wrap-up · ~8 min</span>
-    <h2>Lightning demos</h2>
-    <p class="speaker-lead">3–4 volunteers · ~2 min · your localhost</p>
-    <div class="goals-checklist" style="margin-top: 8px; max-width: 920px">
-      <div class="goals-item">
-        <span class="check"></span><span>One question in your chat UI</span>
+    <span class="eyebrow">Wrap-up</span>
+    <h2 class="lightning-title">Lightning Demos</h2>
+    <p class="speaker-lead lightning-lead">
+      Your bot. Your screen. Two minutes.
+    </p>
+
+    <div class="lightning-stats" aria-label="Demo format">
+      <div class="lightning-stat">
+        <span class="lightning-stat-value">3–4</span>
+        <span class="lightning-stat-label">volunteers</span>
       </div>
-      <div class="goals-item">
-        <span class="check"></span><span>One classify → SQL moment (or refuse)</span>
+      <span class="lightning-stat-sep" aria-hidden="true"></span>
+      <div class="lightning-stat lightning-stat--accent">
+        <span class="lightning-stat-value">~2&nbsp;min</span>
+        <span class="lightning-stat-label">each</span>
       </div>
-      <div class="goals-item">
-        <span class="check"></span><span>One thing that broke while wiring</span>
+      <span class="lightning-stat-sep" aria-hidden="true"></span>
+      <div class="lightning-stat">
+        <span class="lightning-stat-value">localhost</span>
+        <span class="lightning-stat-label">screen share</span>
       </div>
     </div>
+
+    <div class="lightning-beats" aria-label="What to show">
+      <article class="lightning-beat">
+        <div class="lightning-beat-num">01</div>
+        <h3 class="lightning-beat-title">Ask</h3>
+        <p class="lightning-beat-body">One question in your chat UI</p>
+      </article>
+      <article class="lightning-beat lightning-beat--hot">
+        <div class="lightning-beat-num">02</div>
+        <h3 class="lightning-beat-title">Route</h3>
+        <p class="lightning-beat-body">
+          One classify → SQL moment <em>(or refuse)</em>
+        </p>
+      </article>
+      <article class="lightning-beat">
+        <div class="lightning-beat-num">03</div>
+        <h3 class="lightning-beat-title">Own</h3>
+        <p class="lightning-beat-body">One thing that broke while wiring</p>
+      </article>
+    </div>
+
+    <p class="lightning-cta">Raise a hand — then share your localhost.</p>
   </div>
 </section>
 
@@ -60,48 +91,37 @@
       </div>
     </div>
 
-    <span class="eyebrow">Summary</span>
-    <h2>What we stacked</h2>
-    <p class="speaker-lead stage-path-lead">
-      One product path — not four isolated demos.
-    </p>
-
-    <div class="stage-path" aria-label="What we stacked tonight">
-      <article class="stage-card stage-card--now">
-        <div class="stage-card-num">1</div>
-        <h3 class="stage-card-title">UI</h3>
-        <p class="stage-card-body">
-          Stream, status, Stop, and error in the browser.
-        </p>
-      </article>
-      <span class="stage-path-arrow" aria-hidden="true">→</span>
-      <article class="stage-card stage-card--now">
-        <div class="stage-card-num">2</div>
-        <h3 class="stage-card-title">Classify</h3>
-        <p class="stage-card-body">
-          Decisions <code>choice</code> picks list / start list / count / refuse.
-        </p>
-      </article>
-      <span class="stage-path-arrow" aria-hidden="true">→</span>
-      <article class="stage-card stage-card--now">
-        <div class="stage-card-num">3</div>
-        <h3 class="stage-card-title">Postgres</h3>
-        <p class="stage-card-body">
-          Season SQL from the seeded raceplanner DB.
-        </p>
-      </article>
-      <span class="stage-path-arrow" aria-hidden="true">→</span>
-      <article class="stage-card stage-card--now">
-        <div class="stage-card-num">4</div>
-        <h3 class="stage-card-title">Query</h3>
-        <p class="stage-card-body">
-          Your bot answers golden questions in <code>/chat</code>.
-        </p>
-      </article>
-    </div>
-
-    <div class="callout stage-path-callout">
-      Teaching point: composition beats another isolated demo.
+    <span class="eyebrow">Recap · Tonight</span>
+    <h2 style="margin-bottom: 8px">What We Learned</h2>
+    <div class="recap-layout">
+      <div class="recap-takeaways">
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            UI streams with status, Stop, and error in the browser — a product
+            shell, not a terminal script.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Classify picks list / start list / count / refuse; Postgres answers
+            from the seeded season DB.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            One product path — composition beats another isolated demo. Your bot
+            answers goldens in <code>/chat</code>.
+          </p>
+        </div>
+      </div>
+      <div class="recap-phrases">
+        <div class="recap-phrase">UI is the product.</div>
+        <div class="recap-phrase">Classify, then query.</div>
+        <div class="recap-phrase">Composition wins.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -119,51 +139,62 @@
       </div>
     </div>
 
-    <span class="eyebrow">Summary · Module 4</span>
-    <h2>Automate → context → retrieve → ship</h2>
-    <p class="speaker-lead stage-path-lead">
-      Four sessions. One stack. Tonight you shipped the UI.
-    </p>
-
-    <div class="stage-path" aria-label="Module progression">
-      <article class="stage-card">
-        <div class="stage-card-num">S1</div>
-        <h3 class="stage-card-title">Automate</h3>
-        <p class="stage-card-body">
-          Agents and scripts that take action.
-        </p>
-      </article>
-      <span class="stage-path-arrow" aria-hidden="true">→</span>
-      <article class="stage-card">
-        <div class="stage-card-num">S2</div>
-        <h3 class="stage-card-title">Context</h3>
-        <p class="stage-card-body">
-          Prompts, memory, and system framing.
-        </p>
-      </article>
-      <span class="stage-path-arrow" aria-hidden="true">→</span>
-      <article class="stage-card">
-        <div class="stage-card-num">S3</div>
-        <h3 class="stage-card-title">MCP · RAG</h3>
-        <p class="stage-card-body">
-          Tools and grounded retrieval.
-        </p>
-      </article>
-      <span class="stage-path-arrow" aria-hidden="true">→</span>
-      <article class="stage-card stage-card--now">
-        <div class="stage-card-kicker">Tonight</div>
-        <div class="stage-card-num">S4</div>
-        <h3 class="stage-card-title">Ship UI</h3>
-        <p class="stage-card-body">
-          Chatbot in the browser: classify, query, stream.
-        </p>
-      </article>
+    <span class="eyebrow">Recap · Module 4</span>
+    <h2 style="margin-bottom: 8px">What We Learned</h2>
+    <div class="recap-layout">
+      <div class="recap-takeaways">
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Automate → context → MCP · RAG → product UI. Four sessions. Tonight
+            the live pipe was classify → SQL → stream.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            You wired companion checkpoints into a browser bot — goldens +
+            refusal in <code>/chat</code>.
+          </p>
+        </div>
+        <div class="recap-takeaway">
+          <span class="mark">→</span>
+          <p>
+            Keep it alive: re-run goldens; optional homework MCP wrap of
+            <code>lib/queries</code>.
+          </p>
+        </div>
+      </div>
+      <div class="recap-phrases">
+        <div class="recap-phrase">Four sessions. One arc.</div>
+        <div class="recap-phrase">Tonight: classify → SQL.</div>
+        <div class="recap-phrase">Keep it alive.</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-         SLIDE - Homework
+         SLIDE - Homework divider
+    ══════════════════════════════════════════════════════ -->
+<section data-background-color="#151616">
+  <div class="slide-inner section-break on-photo">
+    <div class="dl-header dl-header-dark">
+      <img alt="DL" src="images/dl-school-logo-icon.svg" />
+      <div class="dl-header-text">
+        <span class="dl-top">DIGITALE LEUTE</span>
+        <span class="dl-bottom">SCHOOL</span>
+      </div>
+    </div>
+    <p class="section-break-kicker">After tonight</p>
+    <h1 class="section-break-title">
+      <span class="u">Homework</span>
+    </h1>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+         SLIDE - Keep the product alive
     ══════════════════════════════════════════════════════ -->
 <section data-background-color="#ffffff">
   <div class="slide-inner top">
@@ -175,23 +206,83 @@
       </div>
     </div>
 
-    <span class="eyebrow">Homework</span>
-    <h2>Keep the product alive</h2>
-    <div class="compare-grid" style="grid-template-columns: repeat(3, 1fr)">
-      <div class="compare-card">
-        <div class="pattern-badge">Tier 1</div>
+    <span class="eyebrow">Homework · pick a tier</span>
+    <h2>Keep the Product Alive</h2>
+    <p class="title-lead" style="margin-bottom: 12px; max-width: 720px">
+      Optional stretch after tonight — same bot, still yours. Start with
+      Tier&nbsp;1, then go further if you want.
+    </p>
+    <div class="compare-grid hw-grid" style="grid-template-columns: repeat(3, 1fr)">
+      <div class="compare-card hw-card">
+        <div class="pattern-badge">Tier 1 · must-do</div>
         <h3>Deploy</h3>
-        <p>Push · Vercel · server-side env only · share the URL.</p>
+        <div class="hw-card-block">
+          <div class="hw-card-label">Goal</div>
+          <p>Get <code>/chat</code> live on the public internet.</p>
+        </div>
+        <div class="hw-card-block">
+          <div class="hw-card-label">How to</div>
+          <ol>
+            <li>Push the repo · deploy on Vercel</li>
+            <li>
+              Add <code>OPENAI_API_KEY</code> +
+              <code>DATABASE_URL</code> as
+              <em>server</em> env — never
+              <code>NEXT_PUBLIC_</code>
+            </li>
+            <li>Open the URL · ask one golden · share the link</li>
+          </ol>
+        </div>
       </div>
-      <div class="compare-card">
-        <div class="pattern-badge">Tier 2</div>
-        <h3>MCP homework</h3>
-        <p>Wrap the same <code>lib/queries</code> helpers as MCP tools.</p>
+      <div class="compare-card hw-card">
+        <div class="pattern-badge">Tier 2 · stretch</div>
+        <h3>MCP wrap</h3>
+        <div class="hw-card-block">
+          <div class="hw-card-label">Goal</div>
+          <p>
+            Expose the same <code>lib/queries</code> helpers as MCP tools
+            (tonight called them directly).
+          </p>
+        </div>
+        <div class="hw-card-block">
+          <div class="hw-card-label">How to</div>
+          <ol>
+            <li>
+              Tools:
+              <code>list_races</code>,
+              <code>get_start_list</code>,
+              <code>count_riders</code>
+            </li>
+            <li>
+              Use
+              <code>@modelcontextprotocol/sdk</code> +
+              <code>@ai-sdk/mcp</code>
+            </li>
+            <li>
+              Attach from <code>/api/chat</code> · follow
+              <code>mcp/README.md</code>
+            </li>
+          </ol>
+        </div>
       </div>
-      <div class="compare-card">
-        <div class="pattern-badge">Tier 3</div>
-        <h3>Polish</h3>
-        <p>Better errors · stop · markdown · tiny golden eval.</p>
+      <div class="compare-card hw-card">
+        <div class="pattern-badge">Tier 3 · polish</div>
+        <h3>Product polish</h3>
+        <div class="hw-card-block">
+          <div class="hw-card-label">Goal</div>
+          <p>Make it feel shipped — not a lab demo.</p>
+        </div>
+        <div class="hw-card-block">
+          <div class="hw-card-label">How to</div>
+          <ol>
+            <li>Clearer errors + retry · working Stop</li>
+            <li>Render assistant replies as markdown</li>
+            <li>
+              Tiny eval: run
+              <code>data/golden-questions.md</code>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
@@ -211,7 +302,7 @@
     </div>
 
     <span class="eyebrow">Wrap-up · Resources</span>
-    <h2>Keep building</h2>
+    <h2>Keep Building</h2>
     <div class="goals-checklist" style="margin-top: 12px; max-width: 980px">
       <div class="goals-item">
         <span class="check"></span
@@ -322,7 +413,7 @@
       </div>
     </div>
     <span class="eyebrow mvp-break-eyebrow">Wrap-up</span>
-    <h1 class="mvp-break-title">Thank you.</h1>
+    <h1 class="mvp-break-title">Thank You.</h1>
     <p class="mvp-break-lead">
       DL feedback form · questions →
       <a

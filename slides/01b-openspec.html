@@ -14,7 +14,7 @@
       Intent in the repo · not only in chat
     </p>
     <h1 class="section-break-title">
-      <span class="u">OpenSpec</span> is the map
+      <span class="u">OpenSpec</span> Is the Map
     </h1>
   </div>
 </section>
@@ -33,25 +33,25 @@
     </div>
 
     <span class="eyebrow">OpenSpec · Why tonight</span>
-    <h2>We’re composing many pieces. Spec first.</h2>
+    <h2>We’re Composing Many Pieces. Spec First.</h2>
     <p class="speaker-lead" style="max-width: 920px">
       Same idea as the MVP session: agents guess. A change in git holds what
       “done” means for the chatbot; so you and your agent (Cursor, VS Code, or
       Claude) share one map.
     </p>
-    <div class="compare-grid" style="margin-top: 8px">
-      <div class="compare-card">
+    <div class="duo-grid">
+      <div class="duo-card duo-card--muted">
         <div class="pattern-badge">Without a spec</div>
-        <h3>Prompt spaghetti</h3>
-        <p>
+        <div class="principle-title">Prompt Spaghetti</div>
+        <p class="principle-desc">
           “Add classify… wait SQL… fix streaming…”; branches compound, hard to
           know what’s left.
         </p>
       </div>
-      <div class="compare-card">
+      <div class="duo-card duo-card--accent">
         <div class="pattern-badge">With OpenSpec</div>
-        <h3>One change</h3>
-        <p>
+        <div class="principle-title">One Change</div>
+        <p class="principle-desc">
           <code>build-race-season-assistant</code>: proposal, requirements,
           design, tasks next to the app.
         </p>
@@ -135,7 +135,7 @@
     </div>
 
     <span class="eyebrow">OpenSpec · Traceability</span>
-    <h2>UI numbers ↔ requirements</h2>
+    <h2>UI Numbers ↔ Requirements</h2>
     <table
       class="term-table num-col-table"
       style="margin-top: 10px; max-width: 1040px"
@@ -195,7 +195,7 @@
          SLIDE - How we use it tonight
     ══════════════════════════════════════════════════════ -->
 <section data-background-color="#ffffff">
-  <div class="slide-inner top">
+  <div class="slide-inner top practice-slide">
     <div class="dl-header">
       <img alt="DL" src="images/dl-school-logo-icon.svg" />
       <div class="dl-header-text">
@@ -204,67 +204,92 @@
       </div>
     </div>
 
-    <span class="eyebrow">OpenSpec · Live workflow</span>
-    <h2>How you’ll use it in the room</h2>
-    <div class="goals-checklist" style="margin-top: 10px; max-width: 980px">
-      <div class="goals-item">
-        <span class="check"></span
-        ><span
-          >Clone
-          <a
-            class="link-blue"
-            href="https://github.com/drublic/dl-school-chatbots"
-            rel="noopener"
-            target="_blank"
-            >dl-school-chatbots</a
-          >
-         ; OpenSpec lives in
-          <code>openspec/changes/build-race-season-assistant/</code></span
-        >
+    <div class="practice-layout">
+      <div class="practice-copy">
+        <h2 class="practice-title">Practice.</h2>
+        <div class="practice-meta">
+          <div class="practice-meta-block">
+            <span class="label">Live · OpenSpec:</span> How you’ll use it in
+            the room
+            <span class="detail"
+              >Same five steps as theory —
+              <code>tasks.md</code> is the checklist. Change folder:
+              <code>openspec/changes/build-race-season-assistant/</code></span
+            >
+          </div>
+          <div class="practice-meta-block">
+            <span class="label">Tools:</span> OpenSpec CLI ·
+            <code>/opsx-apply</code> · <code>tasks.md</code>
+          </div>
+        </div>
       </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span
-          >Skim <code>tasks.md</code>: that’s the build order for the
-          evening</span
-        >
-      </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span
-          >In Cursor, VS Code, or Claude: <code>/opsx-apply</code> (Cursor) or
-          ask the agent to apply the change for remaining unchecked tasks; or
-          wire them by hand</span
-        >
-      </div>
-      <div class="goals-item">
-        <span class="check"></span
-        ><span
-          >When a golden question fails: check intent + SQL / prompt, then
-          tick the task</span
-        >
-      </div>
-    </div>
-    <div class="code-terminal" style="max-width: 980px; margin-top: 14px">
-      <div class="code-terminal-bar">
-        <span class="code-terminal-dot" style="background: #ff5f56"></span>
-        <span class="code-terminal-dot" style="background: #ffbd2e"></span>
-        <span class="code-terminal-dot" style="background: #27c93f"></span>
-        <span class="code-terminal-title">terminal</span>
-      </div>
-      <div class="code-terminal-body">
-        <pre><code><span class="c-green">openspec show build-race-season-assistant</span>
-<span class="c-green">openspec status --change build-race-season-assistant</span></code></pre>
-      </div>
+      <aside class="practice-card">
+        <div class="practice-check-list">
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >In
+              <a
+                class="link-blue"
+                href="https://github.com/drublic/dl-school-chatbots"
+                rel="noopener"
+                target="_blank"
+                >dl-school-chatbots</a
+              >
+              (from setup) · open the change folder</span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              ><code>openspec show</code> /
+              <code>openspec status --change …</code></span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >Skim <code>tasks.md</code> — that’s tonight’s build order</span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              ><code>/opsx-apply</code> (or ask the agent / wire by hand)</span
+            >
+          </div>
+          <div class="practice-check-item">
+            <span class="check"></span
+            ><span
+              >Golden fails → fix intent + SQL / prompt, then tick</span
+            >
+          </div>
+        </div>
+      </aside>
     </div>
 
-<nav class="learn-more" aria-label="Install CLI">
-  <span class="learn-more-label">Install CLI</span>
-  <ul class="learn-more-list">
-    <li><a class="link-blue" href="https://openspec.dev/docs/installation" rel="noopener" target="_blank">Installation</a></li>
-    <li><a class="link-blue" href="https://openspec.dev/docs/cli" rel="noopener" target="_blank">CLI</a></li>
-    <li><span class="learn-more-note">change folder <code>openspec/changes/build-race-season-assistant/</code></span></li>
-  </ul>
-</nav>
-</div>
+    <nav class="learn-more" aria-label="Install CLI">
+      <span class="learn-more-label">Install CLI</span>
+      <ul class="learn-more-list">
+        <li>
+          <a
+            class="link-blue"
+            href="https://openspec.dev/docs/installation"
+            rel="noopener"
+            target="_blank"
+            >Installation</a
+          >
+        </li>
+        <li>
+          <a
+            class="link-blue"
+            href="https://openspec.dev/docs/cli"
+            rel="noopener"
+            target="_blank"
+            >CLI</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
 </section>

@@ -32,12 +32,14 @@ DATABASE_URL=... npm run db:seed && npm run dev
 
 | File | Content |
 |---|---|
-| `00-kickoff` | Title, speaker, poll, goals, agenda, setup |
-| `01-theory` | Compose · streaming · errors · numbered chat anatomy · five-step map |
+| `00-kickoff` | Title, speaker, poll, goals, agenda (theory + OpenSpec), setup |
+| `01-theory` | Honest compose · streaming · errors · goldens/refusal · anatomy · five steps → `tasks.md` |
 | `01b-openspec` | OpenSpec is the map · map UI ↔ specs · live workflow |
-| `02-build-early` | Steps 1–3: scaffold → UI → wire (+ break 1) |
+| `02-build-early` | Steps 1–3: companion → UI → wire (+ break 1) |
 | `03-build-late` | Steps 4–5: classify → SQL → query (+ break 2) |
 | `04-close` | Demos, recap, homework, resources, copyright |
+
+Session brief: [`modul4-session-ai-chatbots.md`](modul4-session-ai-chatbots.md) (aligned with this deck).
 
 ## OpenSpec · MVP
 
@@ -45,7 +47,7 @@ Canonical change lives in the **companion** repo (`dl-school-chatbots`):
 
 `openspec/changes/build-race-season-assistant/`
 
-A copy may remain under this deck’s `openspec/` for planning history; apply against the companion.
+Deck `openspec/config.yaml` mirrors that product (five steps · classify → Postgres). Apply against the companion.
 
 ## Docs & links
 

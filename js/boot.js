@@ -124,7 +124,7 @@
     if (kiosk) {
       document.head.insertAdjacentHTML(
         "beforeend",
-        "<style>#nav-btn,#nav-overlay,#lang-switch,#deck-chrome-left{display:none!important}</style>",
+        "<style>#nav-btn,#nav-overlay,#deck-chrome-left{display:none!important}</style>",
       );
     }
 
